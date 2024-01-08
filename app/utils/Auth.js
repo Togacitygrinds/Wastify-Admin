@@ -1,6 +1,5 @@
 import { toast } from "react-toastify";
-import { Axios } from "axios";
-
+import Axios from './Axios'
 // Create a new user
 export const UserSignUp = async (info, setLoading, callback) => {
   try {
