@@ -12,7 +12,7 @@ import WastifyLogo from "../../public/wastify.svg";
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState(""); // [username] is [email
+  const [username, setUsername] = useState(""); 
   const [password, setPassword] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [telephone, setTelephone] = useState("");
@@ -174,7 +174,7 @@ const SignUp = () => {
       </form>
 
       {/* Image Section (takes up remaining 2 columns) */}
-      <div className="flex flex-col flex-wrap-reverse h-[300px] md:gap-6 md:min-h-screen max-w-7xl mx-auto w-full justify-around justify-center md:col-span-2">
+      <div className="flex flex-col flex-wrap-reverse h-[300px] md:gap-6 md:min-h-screen max-w-7xl mx-auto w-full  justify-center md:col-span-2">
         {/* Image Section */}
         <Image
           src={AuthBgImg}
