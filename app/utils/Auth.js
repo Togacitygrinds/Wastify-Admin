@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import Axios from './Axios'
+import Axios from "./Axios";
 // Create a new user
 export const UserSignUp = async (info, setLoading, callback) => {
   try {
@@ -90,22 +90,25 @@ export const AdminLogin = async (info, setLoading, callback) => {
 
 // Admin Signup
 export const AdminSignUp = async (info, setLoading, callback) => {
-    try {
-      const { data } = await Axios({
-        method: "post",
-        url: "/admin/register",
-        data: info,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (data.success) {
-        callback(data);
-      } else {
-        setLoading(false);
-      }
-    } catch (error) {
+  try {
+    const { data } = await Axios({
+      method: "post",
+      url: "/admin/register",
+      data: info,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (data.success) {
+      callback(data);
+      toast.success("Admin added successfully");
+    } else {
       setLoading(false);
-      toast.error(error?.response?.data?.message || "Uh oh! Admin sign up failed.");
     }
-  };
+  } catch (error) {
+    setLoading(false);
+    toast.error(
+      error?.response?.data?.message || "Uh oh! Admin sign up failed."
+    );
+  }
+};

@@ -37,7 +37,7 @@ export const getSanitaryWorkers = async (setLoading, callback) => {
   try {
     const { data } = await Axios({
       method: "GET",
-      url: "/estafette/all",
+      url: "/estafette/",
       headers: {
         "Content-Type": "application/json",
       },

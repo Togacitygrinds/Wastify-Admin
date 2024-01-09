@@ -41,7 +41,7 @@ export const getNotifications = async () => {
   try {
     const { data } = await Axios({
       method: "GET",
-      url: `/notification/all`,
+      url: `/notification`,
       headers: {
         "Content-Type": "application/json",
       },

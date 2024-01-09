@@ -38,7 +38,7 @@ export const getPayments = async () => {
   try {
     const { data } = await Axios({
       method: "GET",
-      url: `/payment/all`,
+      url: `/payment/`,
       headers: {
         "Content-Type": "application/json",
       },

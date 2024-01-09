@@ -5,16 +5,16 @@ import AuthBgImg from "../../public/AuthImg3.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { useStateValue } from "../context/stateProvider";
-import { UserLogin, AdminLogin } from "../utils/auth";
+import { AdminLogin } from "../utils/auth";
 import { toast } from "react-toastify";
 import WastifyLogo from "../../public/wastify.svg";
 
 const LoginPage = () => {
-  // States for User Inputs
-  const [username, setUserName] = useState("");
+  const [username, setUsername] = useState("");
+  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [{ admin, user }, dispatch] = useStateValue();
+  const [{ admin }, dispatch] = useStateValue();
 
   // User Login Functionality
   const login = (event) => {
@@ -25,15 +25,14 @@ const LoginPage = () => {
       password: password,
     };
     AdminLogin(userCredentials, setLoading, (data) => {
-      setUserName("");
+      setUsername("");
       setPassword("");
       setLoading(false);
       dispatch({
-        type: "SET_ADMIN" || "SET_USER",
+        type: "SET_ADMIN",
         data: data.data,
       });
 
-      // Preview if data success
       console.log(data);
       toast.success("Login Successfull", {
         position: "top-center",
@@ -86,13 +85,13 @@ const LoginPage = () => {
 
         {/* Input fields */}
         <input
-          type="username"
-          name="username"
-          id="username"
-          placeholder="Enter your username"
+          type="text"
+          name="email"
+          id="email"
+          placeholder="Enter username"
           className="border border-[#E4E4E4] rounded-md w-[70%] my-4 mx-12 p-2"
           value={username}
-          onChange={(e) => setUserName(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
           required
         />
 
@@ -110,7 +109,7 @@ const LoginPage = () => {
         {/* Forget Password  */}
         <div className="flex items-center justify-end gap-2">
           <Link
-            href={"/recoverpassword"}
+            href={"/recover-password"}
             className="text-[#1D1D1D] text-sm font-semibold underline my-4"
           >
             Forget Password?

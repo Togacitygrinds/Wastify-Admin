@@ -6,5 +6,5 @@ export const generateRandomId = () => {
 
 export const generateInitial = (name) => {
     const userInitial = name.charAt(0);
-    return userInitial.toUpperCase() 
+    return userInitial.toLowerCase() 
 }

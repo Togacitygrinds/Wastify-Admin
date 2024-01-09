@@ -42,7 +42,7 @@ export const getReportIssues = async () => {
   try {
     const { data } = await Axios({
       method: "GET",
-      url: `/report-issues/all`,
+      url: `/report-issue`,
       headers: {
         "Content-Type": "application/json",
       },

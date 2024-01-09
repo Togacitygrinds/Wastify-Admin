@@ -1,4 +1,4 @@
-import Axios from './Axios'
+import Axios from "axios";
 import { toast } from "react-toastify";
 
 // Fetch User Data
@@ -7,7 +7,7 @@ export const fetchUserData = async (route, callback) => {
     const { data } = await Axios({
       method: "GET",
       url: `https://wastify-backend.onrender.com/${route}`,
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
     });
@@ -25,7 +25,7 @@ export const fetchData = async (route, callback) => {
   try {
     const { data } = await Axios({
       method: "GET",
-      url: `https://wastify-backend.onrender.com/${route}`,
+      url: `http://localhost/8001/${route}`,
       headers: {
         "Content-Type": "application/json",
       },

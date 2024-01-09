@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/login/page.js", "app/layout.tsx", "app/page.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/login/page.js", "app/layout.tsx", "app/page.tsx", "app/admin/components/AdminAuth.jsx", "app/admin/components/AdminHeader.jsx", "app/admin/components/AuthenticateAdmin.jsx", "app/admin/components/Dashboard.jsx", "app/admin/components/VerticalNavbar.jsx", "app/admin/estafettes/page.js", "app/admin/companies/page.js", "app/admin/issues/page.js", "app/admin/payment/page.js", "app/admin/requests/page.js", "app/admin/users/page.js", "app/admin/track/page.js", "app/admin/notifications/page.js"],
   "exclude": ["node_modules"]
 }

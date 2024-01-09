@@ -12,6 +12,7 @@ import WastifyLogo from "../../public/wastify.svg";
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState(""); // [username] is [email
   const [password, setPassword] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [telephone, setTelephone] = useState("");
@@ -28,24 +29,27 @@ const SignUp = () => {
     const formattedValue = formatDateString(e.target.value);
     setDateOfBirth(formattedValue);
   };
-
   const signUp = async (e) => {
     e.preventDefault();
     setLoading(true);
 
+    // Format dateOfBirth to MMDDYY format
+    const formattedDateOfBirth = dateOfBirth.replace(/[^0-9]/g, "");
+
     const userCredentials = {
       name: name,
       email: email,
+      username: username,
       password: password,
-      date_of_birth: new Date(dateOfBirth).toISOString(),
+      date_of_birth: formattedDateOfBirth,
       telephone: telephone,
     };
 
-    UserSignUp(userCredentials, setLoading, (data) => {
+    AdminSignUp(userCredentials, setLoading, (data) => {
       setLoading(false);
       console.log(data);
       router.push("/signup");
-      toast.success("User Registration Successful", {
+      toast.success("Admin Registration Successful", {
         position: "top-center",
       });
 
@@ -98,6 +102,16 @@ const SignUp = () => {
           className="border border-[#E4E4E4] rounded-md w-[70%] my-2 mx-12 p-2"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          name="username"
+          id="text"
+          placeholder="Enter Username"
+          className="border border-[#E4E4E4] rounded-md w-[70%] my-2 mx-12 p-2"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           required
         />
 

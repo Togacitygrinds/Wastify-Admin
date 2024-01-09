@@ -9,7 +9,7 @@ export const placePickUpOrder = async (
   try {
     const { data } = await Axios({
       method: "POST",
-      url: `/request-service/`,
+      url: `/request-service`,
       data: pickup_details,
       headers: {
         "Content-Type": "application/json",

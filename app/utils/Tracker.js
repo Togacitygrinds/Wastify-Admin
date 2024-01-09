@@ -36,7 +36,7 @@ export const updateLiveLocation = async (userId, coordinates) => {
   try {
     const { data } = await Axios({
       method: "POST",
-      url: `/track/`,
+      url: `/track`,
       data: { userId, coordinates },
       headers: {
         "Content-Type": "application/json",
