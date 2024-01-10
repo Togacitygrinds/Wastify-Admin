@@ -112,3 +112,26 @@ export const AdminSignUp = async (info, setLoading, callback) => {
     );
   }
 };
+
+// Get Session User
+export const GET_SESSION_USER = async (setLoading, callback) => {
+  try {
+    const { data } = await Axios({
+      url: "auth/refresh",
+      method: "GET",
+    });
+    if (data?.success) {
+      // console.log("<<<>>>", data)
+      console.log("User persists in session.");
+      callback(data.data);
+    } else {
+      toast.warn("Session Expired. Login again!", {
+        toastId: "session-error",
+      });
+      //  window.location.href = '/admin/auth/'
+      setLoading(false);
+    }
+  } catch (e) {
+    setLoading(false);
+  }
+};
